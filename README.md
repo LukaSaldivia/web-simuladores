@@ -1,4 +1,4 @@
-# Temática: `Los Simuladores` 🕵️‍♂️🕵️‍♂️🕵️‍♂️🕵️‍♂️
+# Temática: $${\color{green}Los Simuladores}$$ 🕵️‍♂️🕵️‍♂️🕵️‍♂️🕵️‍♂️
 ***
 ## :busts_in_silhouette: Integrantes:
 + Lautaro Zijlstra  -> `zij.lauta@gmail.com`
