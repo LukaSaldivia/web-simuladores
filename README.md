@@ -1,4 +1,4 @@
-# Temática: `Los Simuladores`
+# Temática: `Los Simuladores` :male_detective: :male_detective: :male_detective: :male_detective:
 ***
 ## Integrantes:
 + Lautaro Zijlstra -> `zij.lauta@gmail.com`
