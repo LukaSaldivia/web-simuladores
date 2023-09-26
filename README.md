@@ -5,7 +5,7 @@
 + Lautaro Zijlstra -> `zij.lauta@gmail.com`
 + Luka Saldivia -> `saldivialuka@gmail.com`
 ***
-## Descripción:
+## Descripción :question: :
 Una página web que recopila los capítulos de "Los Simuladores" subidos en YT.
 ***
 ## Diagrama de Entidad-Relación:
