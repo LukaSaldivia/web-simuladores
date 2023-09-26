@@ -17,7 +17,7 @@ Una página web que recopila los capítulos de "Los Simuladores" subidos en YT.
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2023 a las 03:40:18
+-- Tiempo de generación: 26-09-2023 a las 04:09:01
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -42,7 +42,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `capitulos` (
-  `id` int(11) NOT NULL,
+  `id` varchar(255) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `temporada` int(11) NOT NULL
@@ -69,7 +69,7 @@ CREATE TABLE `cast` (
 
 CREATE TABLE `castxcapitulo` (
   `id_cast` int(11) DEFAULT NULL,
-  `id_capitulo` int(11) DEFAULT NULL
+  `id_capitulo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -150,4 +150,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
