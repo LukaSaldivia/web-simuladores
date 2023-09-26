@@ -1,14 +1,15 @@
 # Temática: Los Simuladores
+***
 ## Integrantes:
 Lautaro Zijlstra (zij.lauta@gmail.com)
 Luka Saldivia (saldivialuka@gmail.com)
-
+***
 ## Descripción:
 Una página web que recopila los capítulos de "Los Simuladores" subidos en YT.
 
 ## Diagrama de relaciones:
 ![Imagen de las relaciones](relaciones.jpg)
-
+***
 
 ## Código SQL para generar la base de datos:
 -- phpMyAdmin SQL Dump
