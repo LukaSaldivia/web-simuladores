@@ -42,6 +42,30 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->logout();
         break;
+    case 'list':
+        $des = 'chapters';
+        if(!empty($params[1])){
+            $des = $params[1];
+        }
+
+        $controller;
+
+        switch ($des) {
+            case 'chapters':
+                $controller = new CapController();
+                break;
+            case 'seasons':
+                // $controller = new TempController();
+                break;
+            
+            default:
+                $controller = new CapController();
+                break;
+        }
+
+        $controller->showList();
+
+        break;
     
 
     default:

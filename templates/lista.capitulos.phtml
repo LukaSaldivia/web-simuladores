@@ -1,0 +1,29 @@
+<?php 
+  require './templates/header.phtml';
+?>
+
+
+
+<ul class="items">
+  <?php foreach($caps as $cap): ?>
+    <li>
+      <a href="view/<?= $cap->idcap ?>">
+      <img src="https://img.youtube.com/vi/<?= $cap->idcap ?>/sddefault.jpg" alt="">
+      <?=$cap->nombrecap?> <span class="season"><?=$cap->nombretemp?></span></a>
+      <?php if(isset($_SESSION['USER_ID'])) :?>
+        <section class="actions">
+        <a href="delete/chapter/<?= $cap->idcap ?>">Eliminar</a>
+        <a href="edit/chapter/<?= $cap->idcap ?>">Editar</a>
+        </section>
+        <?php endif ?>
+
+
+    </li>
+  <?php endforeach ?>
+
+
+</ul>
+
+<?php 
+  require './templates/footer.phtml';
+?>

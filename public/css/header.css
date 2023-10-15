@@ -21,7 +21,7 @@ body header .home{
   color: var(--primary);
 }
 
-body > header ul{
+body > header > ul{
   list-style: none;
   display: flex;
   align-items: center;
@@ -48,4 +48,33 @@ body > header a[href='register']{
 }
 body > header a[href='logout']{
   --_clr : var(--error-secondary);
+}
+
+body > header .dropdown{
+  position: relative;
+  
+}
+body > header .dropdown .dropdown-content{
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  display: none;
+
+  list-style: none;
+}
+body > header .dropdown .dropdown-content li{
+  background-color: white;
+}
+body > header .dropdown .dropdown-content li:hover{
+  filter: brightness(.9);
+}
+body > header .dropdown .dropdown-content li a{
+  display: inline-block;
+  padding: .5rem 1rem;
+  width: 100%;
+  color: var(--background);
+}
+
+body > header .dropdown:hover .dropdown-content{
+  display: grid;
 }

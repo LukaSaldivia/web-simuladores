@@ -5,5 +5,9 @@ class CapView{
     require './templates/landing.phtml';
   }
 
+  public function showList($caps){
+    require './templates/lista.capitulos.phtml';
+  }
+
 
 }

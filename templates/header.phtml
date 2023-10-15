@@ -1,5 +1,5 @@
 <?php 
-    session_start()
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +21,14 @@
     <a href="home" class="home">Inicio</a>
 
     <ul>
-        <li><a href="temporadas">Temporadas</a></li>
+        <li><div class="dropdown">
+            Listas
+            <ul class="dropdown-content">
+                <li><a href="list/chapters">Capítulos</a></li>
+                <li><a href="list/seasons">Temporadas</a></li>
+            </ul>
+        </div></li>
         <?php if(isset($_SESSION['USER_ID'])) :?>
-        <li><a href="tables">Tablas</a></li>
         <li><a class="log-action" href="logout">Cerrar Sesión</a></li>
         <?php else : ?>
             <li><a class="log-action" href="register">Registrarse</a></li>
