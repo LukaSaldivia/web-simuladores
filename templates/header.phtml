@@ -1,3 +1,7 @@
+<?php 
+    session_start()
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +22,13 @@
 
     <ul>
         <li><a href="temporadas">Temporadas</a></li>
-        <li><a href="login">Iniciar Sesión</a></li>
+        <?php if(isset($_SESSION['USER_ID'])) :?>
+        <li><a href="tables">Tablas</a></li>
+        <li><a class="log-action" href="logout">Cerrar Sesión</a></li>
+        <?php else : ?>
+            <li><a class="log-action" href="register">Registrarse</a></li>
+        <li><a class="log-action" href="login">Iniciar Sesión</a></li>
+        <?php endif ?>
     </ul>
 </header>
 <main>

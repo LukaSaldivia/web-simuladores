@@ -1,11 +1,8 @@
 const header = document.querySelector('header')
-const scrollWatcher = document.createElement('div')
 
-scrollWatcher.setAttribute('data-scroll-watcher','')
-header.before(scrollWatcher)
-
-const headerObserver = new IntersectionObserver((entries)=>{
-  header.classList.toggle('active',!entries[0].isIntersecting)
+window.addEventListener('scroll',()=>{
+  const trigger = 90
+  const top = Math.min(Math.floor(window.scrollY-trigger-header.clientHeight),0)
+  header.setAttribute('style',`--_top:${top}px`)
+  header.classList.toggle('active',window.scrollY > trigger)
 })
-
-headerObserver.observe(scrollWatcher)

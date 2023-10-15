@@ -3,7 +3,8 @@
 require_once './app/controllers/cap.controller.php';
 require_once './app/controllers/cast.controller.php';
 require_once './app/controllers/temp.controller.php';
-require_once './app/controllers/user.controller.php';
+require_once './app/controllers/auth.controller.php';
+require_once './app/controllers/noPage.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -19,11 +20,32 @@ switch ($params[0]) {
         $controller = new CapController();
         $controller->showCapitulos();
         break;
-    case 'mas':
-        echo 'Hola';
+    case 'login':
+        $controller = new AuthController();
+        $controller->showLogin();
+        break;
+
+    case 'register':
+        $controller = new AuthController();
+        $controller->showRegister();
         break;
     
+    case 'auth-login':
+        $controller = new AuthController();
+        $controller->authLogin();
+        break;
+    case 'auth-register':
+        $controller = new AuthController();
+        $controller->authRegister();
+        break;
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();
+        break;
+    
+
     default:
-        echo '404';
+    $controller = new NoPageController();
+    $controller->show404Page();
     break;
 }

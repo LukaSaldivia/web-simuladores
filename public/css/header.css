@@ -1,18 +1,20 @@
 body > header{
   display: flex;
   justify-content: space-between;
-  padding: 1.3rem var(--padding);
-  position: sticky;
-  top: 0;
-
+  align-items: center;
+  
+  
   z-index: 9;
-
-  transition: .2s background ease-in;
-
+  
 }
 
 body > header.active{
+  position: sticky;
+  top: var(--_top);
+  
   background: var(--background);
+  box-shadow: 0 10px 10px #0009;
+
 }
 
 body header .home{
@@ -22,6 +24,7 @@ body header .home{
 body > header ul{
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 body > header *{
@@ -29,6 +32,20 @@ body > header *{
   text-decoration: none;
 }
 
-body > header a:hover{
-  color: var(--accent);
+body > header a.log-action{
+  text-decoration: underline var(--_clr) 1.5px;
+  text-underline-offset: 2px;
+}
+body > header a.log-action:hover{
+  color: var(--_clr);
+}
+
+body > header a[href='login']{
+  --_clr : var(--primary);
+}
+body > header a[href='register']{
+  --_clr : var(--accent);
+}
+body > header a[href='logout']{
+  --_clr : var(--error-secondary);
 }
