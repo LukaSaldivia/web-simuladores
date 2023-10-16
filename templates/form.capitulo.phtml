@@ -1,0 +1,78 @@
+<?php 
+  require './templates/header.phtml'
+?>
+
+<h2><?php if(!is_null($id)) :?>
+      Editar
+    <?php else : ?>
+      Insertar
+    <?php endif ?>
+Capítulo</h2>
+
+<form action="<?php if($id):?>edit-chapter<?php else: ?>auth-chapter<?php endif ?>" method="post">
+  <div class="row">
+    <img src="
+    <?php if ($id):?>
+      http://img.youtube.com/vi/<?=$id?>/hqdefault.jpg
+      <?php endif ?>
+      " alt="Miniatura" id="miniatura">
+    </div>
+    <?php if (!$id):?>
+    <div class="row">
+      <label for="url">Url del video</label>
+      <input name="url" id="url" type="url">
+      </div>
+      <?php else: ?>
+        <input type="text" value="<?=$id?>" name="id" id="id" hidden>
+      <?php endif ?>
+      <div class="row">
+        <label for="titulo">Título</label>
+        <input name="titulo" id="titulo" type="text" value="<?php if ($id):?><?= $capData['cap'][0]->nombrecap ?><?php endif ?>">
+  </div>
+  <div class="row">
+    <label for="descripcion">Descripción</label>
+      <textarea name="descripcion" id="descripcion" cols="30" rows="10"><?php if ($id):?><?= $capData['cap'][0]->descripcion ?><?php endif ?></textarea>
+  </div>
+
+  <div class="row">
+    <label for="cast">Cast</label>
+    <select name="cast" id="cast">
+      <?php foreach($cast as $persona): ?>
+        <option value="<?= $persona->idcast ?>"><?= $persona->nombrecast ?> <?= $persona->apellido ?></option>
+      <?php endforeach ?>
+    </select>
+    <input type="text" id="castHidden" name="castHidden"
+    <?php if ($id):?>
+      value="<?php foreach($capData['cast'] as $cast): ?><?= $cast->idcast ?>/<?php endforeach ?>"
+    <?php endif ?>
+    hidden
+    >
+    <div class="cast-results"></div>
+  </div>
+  <div class="row">
+    <label for="temporada">Temporada</label>
+    <select name="temporada" id="temporada">
+      <?php foreach($temps as $temporada): ?>
+        <?php if($temporada->idtemp == $capData['cap'][0]->temporada) : ?>
+        <option value="<?= $temporada->idtemp ?>" selected><?= $temporada->nombretemp ?></option>
+        <?php else : ?>
+          <option value="<?= $temporada->idtemp ?>"><?= $temporada->nombretemp ?></option>
+        <?php endif?>
+      <?php endforeach ?>
+    </select>
+  </div>
+
+  <div class="row">
+    <input type="submit" value="Enviar">
+  </div>
+</form>
+
+<div class="error">
+  <p><?= $error ?></p>
+</div>
+
+<script src="./public/js/form.chapter.js"></script>
+
+<?php 
+  require './templates/footer.phtml'
+?>

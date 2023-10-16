@@ -5,6 +5,7 @@
 @import url(form.css);
 @import url(error.css);
 @import url(list.css);
+@import url(videoplayer.css);
 
 :root{
   --clr-text: #b6b6b6;
@@ -23,22 +24,18 @@
 }
 
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: var(--background-light);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--primary);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-dark);
 }
@@ -99,6 +96,7 @@ h1, h2, h3, h4, h5 {
   font-family: 'Poppins';
   font-weight: 700;
   color: var(--clr-header);
+  text-wrap: balance;
 }
 
 html {font-size:100%;} /* 16px */

@@ -23,6 +23,7 @@ form p a{
 form .row{
   display: grid;
   gap: .4rem;
+  width: 100%;
 }
 
 form .row input{
@@ -49,4 +50,25 @@ form .row input[type="submit"]{
 
 form .row input[type="submit"]:is(:hover,:focus){
   background-color: var(--primary);
+}
+
+
+form .row img#miniatura{
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+form .row .cast-results{
+  display: flex;
+  font-size: .8rem;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+form .row .cast-results div{
+  background-color: var(--accent);
+  color: var(--background);
+  border-radius: 10px;
+  padding: .2rem;
 }

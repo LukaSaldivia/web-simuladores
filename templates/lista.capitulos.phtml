@@ -2,13 +2,15 @@
   require './templates/header.phtml';
 ?>
 
-
+      <?php if(isset($_SESSION['USER_ID'])) :?>
+        <a href="add/chapter" class="cta">Agregar capítulo</a>
+        <?php endif ?>
 
 <ul class="items">
   <?php foreach($caps as $cap): ?>
     <li>
       <a href="view/<?= $cap->idcap ?>">
-      <img src="https://img.youtube.com/vi/<?= $cap->idcap ?>/sddefault.jpg" alt="">
+      <img src="https://img.youtube.com/vi/<?= $cap->idcap ?>/mqdefault.jpg" alt="">
       <?=$cap->nombrecap?> <span class="season"><?=$cap->nombretemp?></span></a>
       <?php if(isset($_SESSION['USER_ID'])) :?>
         <section class="actions">

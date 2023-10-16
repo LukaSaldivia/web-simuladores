@@ -1,0 +1,34 @@
+<?php 
+  require './templates/header.phtml'
+?>
+
+<h2><?php if(!is_null($id)) :?>
+      Editar
+    <?php else : ?>
+      Insertar
+    <?php endif ?>
+Temporada</h2>
+
+<form action="<?php if($id):?>edit-season<?php else: ?>auth-season<?php endif ?>" method="post">
+
+  <?php if($id): ?>
+    <input name="id" id="id" type="text" hidden value="<?= $id ?>">
+    <?php endif ?>
+
+  <div class="row">
+    <label for="nombre">Nombre</label>
+      <input name="nombre" id="nombre" value="<?php if ($id):?><?= $temp->nombretemp ?><?php endif ?>">
+  </div>
+
+  <div class="row">
+    <input type="submit" value="Enviar">
+  </div>
+</form>
+
+<div class="error">
+  <p><?= $error ?></p>
+</div>
+
+<?php 
+  require './templates/footer.phtml'
+?>

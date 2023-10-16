@@ -1,13 +1,30 @@
+a.cta{
+  background-color: var(--primary);
+  color: var(--background);
+  text-decoration: none;
+
+  padding: .4rem 2rem;
+
+  justify-self: start;
+}
+
+a.cta:hover{
+  color: initial;
+  filter: brightness(1.4);
+}
+
 .items{
   width: 100%;
 
   background-color: var(--background-dark);
 
   list-style: none;
+
 }
 
 .items section{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .items section > *{
@@ -32,12 +49,13 @@
 }
 
 .items a img{
-  height: 3rem;
+  height: 6rem;
 }
 
 .items a{
   display: flex;
   align-items: center;
+  flex-wrap: wrap-reverse;
 
   gap: 1rem;
   color: var(--clr-text);
@@ -45,6 +63,11 @@
 
   width: 100%;
   padding: .5rem 1.3rem;
+
+}
+
+.items li{
+  border-block: 1px solid #fff2;
 }
 
 .items li:has(>a:hover){
