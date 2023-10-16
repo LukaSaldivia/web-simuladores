@@ -13,43 +13,57 @@ class TempController{
         $this->view = new TempView();
    }
 
-    public function showTemporadas(){
-        $temps = $this->model->getTemporadas();
-        $this->view->showTemporadas();
-    }
-
     public function addTemporada(){
-      if ($_POST) {
-        $nombre = $_POST['season'];
+        $nombre = $_POST['nombre'];
   
         if (empty($nombre)) {
-           $this->view->showRegister("Complete todos los campos");
+           $this->view->showForm("Complete todos los campos");
            return;
          } else {
-            $yaexiste = $this->model->getBySeasonName($nombre);
+            $yaexiste = $this->model->getSeasonByName($nombre);
             if ($yaexiste) {
-               $this->view->showRegister('Ya existe una temporada con ese nombre');
+               $this->view->showForm(null,'Ya existe una temporada con ese nombre');
             } else {
                $this->model->addTemporada($nombre);
+               header('Location: '. BASE_URL);
+
             }
         }
-      }
      }
 
 
     public function showList(){
-        $caps = $this->model->getTemporadas(); 
-        $this->view->showList($caps);
+        $temps = $this->model->getTemporadas(); 
+        $this->view->showList($temps);
      }
 
-     public function deleteCaptitulos($id){
-        $this->model->deleteTemporadas($id);
+     public function deleteTemporada($id){
+        $this->model->deleteTemporada($id);
         header('Location: '. BASE_URL);
      }
   
-     public function editTemporadas($id){
-        $this->model->editTemporadas($id);
+     public function editTemporada(){
+      $id = $_POST['id'];
+      $nombre = $_POST['nombre'];
+
+      if (empty($nombre)) {
+         $this->view->showForm($id,'Complete todos los campos correctamente');
+         return;
+      }
+
+      $this->model->editTemporada($id,$nombre);
+
         header('Location: '. BASE_URL);
      }
+
+     public function showForm($id = null,$error = null){
+
+      $temp = '';
+      if (!is_null($id)) {
+         $temp = $this->model->getSeasonById($id);
+      }
+
+      require './templates/form.temporada.phtml';
+   }
 
 }

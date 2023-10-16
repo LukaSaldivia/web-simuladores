@@ -1,0 +1,28 @@
+<?php 
+  require './templates/header.phtml';
+?>
+
+      <?php if(isset($_SESSION['USER_ID'])) :?>
+        <a href="add/cast" class="cta">Agregar actor/actriz</a>
+        <?php endif ?>
+
+<ul class="items">
+  <?php foreach($cast as $cast): ?>
+    <li>
+      <a href="view/<?= $cast->idcast ?>">
+      <?=$cast->nombrecast?> <span class="season"><?=$cast->apellido?></span></a>
+      <?php if(isset($_SESSION['USER_ID'])) :?>
+        <section class="actions">
+        <a href="delete/cast/<?= $cast->idcast ?>">Eliminar</a>
+        <a href="edit/cast/<?= $cast->idcast ?>">Editar</a>
+        </section>
+        <?php endif ?>
+    </li>
+  <?php endforeach ?>
+
+
+</ul>
+
+<?php 
+  require './templates/footer.phtml';
+?>

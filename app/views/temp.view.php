@@ -1,15 +1,13 @@
 <?php
 
 class TempView{
-  public function showTemporadas(){
-    require './templates/landing.phtml';
-  }
 
-  public function showList($caps){
+
+  public function showList($temps){
     require './templates/lista.temporadas.phtml';
   }
 
-  public function showRegister($error = null){
+  public function showForm($id = null,$error = null){
     require './templates/form.temporada.phtml';
   }
 

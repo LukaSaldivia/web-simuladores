@@ -14,6 +14,21 @@
 </div>
 
 
+<div class="videos-container">
+  <?php foreach($caps as $cap): ?>
+
+    <a href="view/<?= $cap->idcap ?>" class="card">
+    <img src="https://img.youtube.com/vi/<?= $cap->idcap ?>/hqdefault.jpg" alt="<?= $cap->nombrecap ?>">
+    <div class="details">
+      <h5><?= $cap->nombrecap ?></h5>
+      <small><?= $cap->nombretemp ?></small>
+    </div>
+    </a>
+
+
+  <?php endforeach ?>
+</div>
+
 
 <?php 
   require './templates/footer.phtml';

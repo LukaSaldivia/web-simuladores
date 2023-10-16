@@ -38,6 +38,18 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->authRegister();
         break;
+    case 'auth-chapter':
+        $controller = new CapController();
+        $controller->addCapitulo();
+        break;
+    case 'auth-season':
+        $controller = new TempController();
+        $controller->addTemporada();
+        break;
+    case 'auth-cast':
+        $controller = new CastController();
+        $controller->addCast();
+        break;
     case 'logout':
         $controller = new AuthController();
         $controller->logout();
@@ -53,21 +65,27 @@ switch ($params[0]) {
         switch ($des) {
             case 'chapters':
                 $controller = new CapController();
+                $controller->showList();
                 break;
             case 'seasons':
                 $controller = new TempController();
+                $controller->showList();
                 break;
-            
+            case 'cast':
+                $controller = new CastController();
+                $controller->showList();
+                break;
             default:
-                $controller = new CapController();
-                break;
+            $controller = new NoPageController();
+            $controller->show404Page();
+            break;
         }
 
-        $controller->showList();
 
         break;
+        
     case 'add':
-        $des = 'chapters';
+        $des = 'chapter';
         if(!empty($params[1])){
             $des = $params[1];
         }
@@ -75,19 +93,102 @@ switch ($params[0]) {
         $controller;
 
         switch ($des) {
-            case 'chapters':
+            case 'chapter':
                 $controller = new CapController();
-                $controller->addCapitulos();
                 break;
-            case 'seasons':
-                $controller = new TempController();
-                $controller->addTemporada();
+            case 'season':
+                $controller = new TempController();                   
+                break;
+            case 'cast':
+                $controller = new CastController();
                 break;
             default:
-                $controller = new CapController();
-                $controller->addCapitulos();
-                break;
+            $controller = new NoPageController();
+            $controller->show404Page();
+            break;
         }
+
+        $controller->showForm();
+
+
+        break;
+          
+    case 'edit':
+        $des = 'chapter';
+        if(!empty($params[1])){
+            $des = $params[1];
+        }
+
+        $controller;
+
+        switch ($des) {
+            case 'chapter':
+                $controller = new CapController();
+                break;
+            case 'season':
+                $controller = new TempController();
+                 break;
+            case 'cast':
+                $controller = new CastController();
+                break;
+            default:
+            $controller = new NoPageController();
+            $controller->show404Page();
+            break;
+        }
+
+        $controller->showForm($params[2]);
+
+
+        break;
+                  
+    case 'delete':
+        $des = 'chapter';
+        if(!empty($params[1])){
+            $des = $params[1];
+        }
+
+        $controller;
+
+        switch ($des) {
+            case 'chapter':
+                $controller = new CapController();
+                $controller->deleteCaptitulo($params[2]);
+            break;
+            case 'season':
+                $controller = new TempController();
+                $controller->deleteTemporada($params[2]);
+                break;
+            case 'cast':
+                $controller = new CastController();
+                $controller->deleteCast($params[2]);
+                break;
+            default:
+            $controller = new NoPageController();
+            $controller->show404Page();
+            break;
+        }
+
+
+        break;
+
+    case 'view':
+        $controller = new CapController();
+        $controller->showVideoPlayer($params[1]);
+        break;
+
+    case 'edit-chapter':
+        $controller = new CapController();
+        $controller->editCaptitulo();
+        break;
+    case 'edit-season':
+        $controller = new TempController();
+        $controller->editTemporada();
+        break;
+    case 'edit-cast':
+        $controller = new CastController();
+        $controller->editCast();
+        
         break;
     
 

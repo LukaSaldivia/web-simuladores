@@ -2,15 +2,26 @@
   require './templates/header.phtml'
 ?>
 
-<h2>Agregue una columna</h2>
+<h2><?php if(!is_null($id)) :?>
+      Editar
+    <?php else : ?>
+      Insertar
+    <?php endif ?>
+Temporada</h2>
 
-<form action="temp-add" method="get">
+<form action="<?php if($id):?>edit-season<?php else: ?>auth-season<?php endif ?>" method="post">
+
+  <?php if($id): ?>
+    <input name="id" id="id" type="text" hidden value="<?= $id ?>">
+    <?php endif ?>
+
   <div class="row">
-    <label for="season">Temporada</label>
-    <input name="season" id="season" type="text">
+    <label for="nombre">Nombre</label>
+      <input name="nombre" id="nombre" value="<?php if ($id):?><?= $temp->nombretemp ?><?php endif ?>">
   </div>
+
   <div class="row">
-    <input type="submit" value="Agregar">
+    <input type="submit" value="Enviar">
   </div>
 </form>
 

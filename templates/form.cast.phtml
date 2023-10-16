@@ -1,0 +1,41 @@
+<?php 
+  require './templates/header.phtml'
+?>
+
+<h2><?php if(!is_null($id)) :?>
+      Editar
+    <?php else : ?>
+      Insertar
+    <?php endif ?>
+Actor/Actriz</h2>
+
+<form action="<?php if($id):?>edit-cast<?php else: ?>auth-cast<?php endif ?>" method="post">
+
+  <?php if($id): ?>
+    <input name="id" id="id" type="text" hidden value="<?= $id ?>">
+  <?php endif ?>
+  <div class="row">
+    <label for="nombre">Nombre</label>
+      <input name="nombre" id="nombre" value="<?php if ($id):?><?= $cast->nombrecast ?><?php endif ?>">
+  </div>
+  <div class="row">
+    <label for="apellido">Apellido</label>
+      <input name="apellido" id="apellido" value="<?php if ($id):?><?= $cast->apellido ?><?php endif ?>">
+  </div>
+  <div class="row">
+    <label for="foto">Foto</label>
+      <input name="foto" id="foto" value="<?php if ($id):?><?= $cast->foto ?><?php endif ?>">
+  </div>
+
+  <div class="row">
+    <input type="submit" value="Enviar">
+  </div>
+</form>
+
+<div class="error">
+  <p><?= $error ?></p>
+</div>
+
+<?php 
+  require './templates/footer.phtml'
+?>

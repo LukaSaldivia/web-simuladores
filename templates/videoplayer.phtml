@@ -1,0 +1,26 @@
+<?php 
+  require './templates/header.phtml';
+?>
+<div class="videoplayer-container">
+<iframe src="https://www.youtube.com/embed/<?= $data['cap'][0]->idcap ?>?modestbranding=1&autoplay=1"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <div class="details">
+    <h3><?= $data['cap'][0]->nombrecap ?></h3>
+    <h5><?= $data['cap'][0]->nombretemp ?></h5>
+    <p><?= $data['cap'][0]->descripcion ?></p>
+  </div>
+
+  <div class="cast">
+    <h5>Elenco</h5>
+    <section class="tags-container">
+  <?php foreach($data['cast'] as $cast): ?>
+    <div data-name="<?= $cast->nombrecast ?>"><?= $cast->nombrecast ?> <?= $cast->apellido ?></div>
+    <?php endforeach ?>
+    </section>
+
+
+  </div>
+</div>
+
+<?php 
+  require './templates/footer.phtml';
+?>
