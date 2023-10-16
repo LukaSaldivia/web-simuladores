@@ -1,0 +1,60 @@
+.landing header{
+  max-width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.landing header h5{
+  color: var(--clr-text);
+  font-weight: lighter;
+}
+
+.landing header h5::after{
+  content: '__';
+  color: transparent;
+  height: 1rem;
+  width: 1rem;
+  background-image: url("../src/icons/youtube.png");
+  background-size: cover;
+  margin-inline: .4rem;
+}
+
+.landing .img-container{
+  height: 100%;
+  position: relative;
+
+  
+}
+
+
+.landing .img-container::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  translate: -50% -50%;
+  
+  height: 50%;
+  width: 100%;
+  
+  border-radius: 50%;
+  
+  background-color: var(--primary);
+  z-index: -1;
+  
+  filter: url(#noise) drop-shadow(0 0 30px var(--primary));
+  animation: minimal 3s infinite alternate ease-in-out;
+}
+
+@keyframes minimal {
+  to{
+    scale: 1.00001;
+  }
+}
+.landing .img-container img{
+  object-fit: cover;
+  width: 100%;
+
+  filter: sepia(1) hue-rotate(170deg) contrast(1.4) brightness(.6) grayscale(.2);
+}

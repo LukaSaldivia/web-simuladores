@@ -1,0 +1,52 @@
+form{
+
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding: 4rem;
+
+  background-color: var(--background-light);
+  width: min-content;
+
+  border-top: 5px solid var(--primary);
+
+}
+
+form p{
+  color: var(--clr-text);  
+  font-size: .8rem;
+}
+form p a{
+  color: var(--clr-text);  
+}
+
+form .row{
+  display: grid;
+  gap: .4rem;
+}
+
+form .row input{
+  padding: .5rem .7rem;
+  border-style: none;
+}
+
+form .row input:focus{
+  outline-style: none;
+}
+
+form .row label{
+  color: var(--accent);
+}
+
+form .row:has(input[type="submit"]){
+  margin-top: 3rem;
+  width: 100%;
+}
+form .row input[type="submit"]{
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+form .row input[type="submit"]:is(:hover,:focus){
+  background-color: var(--primary);
+}

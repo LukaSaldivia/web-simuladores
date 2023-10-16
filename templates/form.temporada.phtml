@@ -1,0 +1,23 @@
+<?php 
+  require './templates/header.phtml'
+?>
+
+<h2>Agregue una columna</h2>
+
+<form action="temp-add" method="get">
+  <div class="row">
+    <label for="season">Temporada</label>
+    <input name="season" id="season" type="text">
+  </div>
+  <div class="row">
+    <input type="submit" value="Agregar">
+  </div>
+</form>
+
+<div class="error">
+  <p><?= $error ?></p>
+</div>
+
+<?php 
+  require './templates/footer.phtml'
+?>
