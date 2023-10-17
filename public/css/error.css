@@ -1,0 +1,30 @@
+.error{
+  margin-top: 1rem;
+  background-color: var(--error);
+  padding: 1rem;
+
+  border: 2px solid var(--error-secondary);
+
+  color: var(--error-secondary);
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+
+
+}
+
+.error::before{
+  content: '__';
+  color: transparent;
+  height: 1.4rem;
+  width: 1.4rem;
+  background-image: url("../src/icons/alert.png");
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(350deg) saturate(39) grayscale(.5) brightness(1.2);
+  background-size: cover;
+  background-position: center;
+  margin-inline: .4rem;}
+
+.error:has(p:empty){
+  display: none;
+}

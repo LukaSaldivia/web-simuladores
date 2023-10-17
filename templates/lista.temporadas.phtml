@@ -1,0 +1,29 @@
+<?php 
+  require './templates/header.phtml';
+?>
+
+
+
+<?php if(isset($_SESSION['USER_ID'])) :?>
+        <a href="add/season" class="cta">Agregar temporada</a>
+        <?php endif ?>
+<ul class="items">
+  <?php foreach($temps as $temp): ?>
+    <li>
+      <a href="view/list/<?= $temp->idtemp ?>">
+      <?=$temp->nombretemp?></a>
+      <?php if(isset($_SESSION['USER_ID'])) :?>
+        <section class="actions">
+        <a href="delete/season/<?= $temp->idtemp ?>">Eliminar</a>
+        <a href="edit/season/<?= $temp->idtemp ?>">Editar</a>
+        </section>
+        <?php endif ?>
+    </li>
+  <?php endforeach ?>
+
+
+</ul>
+
+<?php 
+  require './templates/footer.phtml';
+?>

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:700|Poppins:400');
+@import url(landing.css);
+@import url(header.css);
+@import url(footer.css);
+@import url(form.css);
+@import url(error.css);
+@import url(list.css);
+@import url(videoplayer.css);
+
+:root{
+  --clr-text: #b6b6b6;
+  --clr-header: #fefcfb;
+  --background: #030710;
+  --background-dark: #010204;
+  --background-light: #070f22;
+  --primary: #41c606;
+  --primary-dark: #319905;
+  --secondary: #101f0a;
+  --accent: #f4b008;  
+
+  --error: #5a1717;
+  --error-secondary: #fa4545;
+  
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+::selection{
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+*,::before,::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-family: 'Poppins';
+  font-weight: 400;
+
+  background-color: var(--background);
+  --_s: 76px;
+  --_c: var(--background);
+  --_g: conic-gradient(var(--_c) 25%,#0000 0) 0 0;
+  background:
+    var(--_g)/calc(2*var(--_s)) calc(var(--_s)/9.5),
+    var(--_g)/calc(var(--_s)/9.5) calc(2*var(--_s)),
+    repeating-conic-gradient(#0000 0 25%,var(--_c) 0 50%) 
+     var(--_s) 0 /calc(2*var(--_s)) calc(2*var(--_s)),
+    radial-gradient(50% 50%, var(--background-light) 98%,var(--_c)) 
+     0 0/var(--_s) var(--_s);
+
+  overflow-x: hidden;
+
+  color: var(--clr-text);
+}
+
+body > *{
+  padding: 1.5rem max(8vw,1rem);
+}
+
+main{
+  display: grid;
+  place-items: center;
+}
+
+
+a:hover{
+  color: var(--accent);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins';
+  font-weight: 700;
+  color: var(--clr-header);
+  text-wrap: balance;
+}
+
+html {font-size:100%;} /* 16px */
+
+h1 {font-size:3.053rem; /* 48.8px */}
+
+h2 {font-size:2.442rem; /* 39.04px */}
+
+h3 {font-size:1.954rem; /* 31.2px */}
+
+h4 {font-size:1.563rem; /* 24.96px */}
+
+h5 {font-size:1.250rem; /* 20px */}
+
+small {font-size:0.800rem; /* 12.8px */}
+
+
+

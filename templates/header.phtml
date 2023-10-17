@@ -1,0 +1,42 @@
+<?php 
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="<?= BASE_URL ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/general.css">
+    <script defer src="./public/js/header.js"></script>
+    <title>Los Simuladores</title>
+</head>
+
+<body>
+
+<header>
+    <a href="home" class="home">Inicio</a>
+
+    <ul>
+        <li><div class="dropdown">
+            Listas
+            <ul class="dropdown-content">
+                <li><a href="list/chapters">Capítulos</a></li>
+                <li><a href="list/seasons">Temporadas</a></li>
+                <li><a href="list/cast">Elenco</a></li>
+            </ul>
+        </div></li>
+        <?php if(isset($_SESSION['USER_ID'])) :?>
+        <li><a class="log-action" href="logout">Cerrar Sesión</a></li>
+        <?php else : ?>
+            <li><a class="log-action" href="register">Registrarse</a></li>
+        <li><a class="log-action" href="login">Iniciar Sesión</a></li>
+        <?php endif ?>
+    </ul>
+</header>
+<main>
